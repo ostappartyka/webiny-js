@@ -2,6 +2,7 @@
   "extends": "../../tsconfig",
   "references": [
     { "path": "../plugins" },
+    { "path": "../react-router" },
     { "path": "../ui" },
     { "path": "../i18n" },
     { "path": "../i18n-react" }

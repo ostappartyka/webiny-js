@@ -3,6 +3,7 @@ import React from "react";
 import { registerPlugins, getPlugins } from "@webiny/plugins";
 import { PageBuilderProvider } from "@webiny/app-page-builder/contexts/PageBuilder";
 import { UiProvider } from "@webiny/app/contexts/Ui";
+import { Routes } from "@webiny/app/components";
 import plugins from "./plugins";
 import { GenericNotFoundPage, GenericErrorPage } from "./pageBuilder";
 import { I18NProvider } from "@webiny/app-i18n/contexts/I18N";
@@ -25,9 +26,7 @@ const App = () => {
         <I18NProvider>
             <UiProvider>
                 <PageBuilderProvider defaults={defaults}>
-                    {getPlugins("route").map(pl =>
-                        React.cloneElement(pl.route, { key: pl.name, exact: true })
-                    )}
+                    <Routes />
                 </PageBuilderProvider>
             </UiProvider>
         </I18NProvider>

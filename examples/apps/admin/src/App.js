@@ -1,6 +1,7 @@
 import { hot } from "react-hot-loader";
 import React from "react";
 import { UiProvider } from "@webiny/app/contexts/Ui";
+import { Routes } from "@webiny/app/components";
 import { registerPlugins, getPlugins } from "@webiny/plugins";
 import { ThemeProvider } from "@webiny/app-admin/contexts/Theme";
 import { AppInstaller } from "@webiny/app-admin/components/Install/AppInstaller";
@@ -27,12 +28,7 @@ const App = () => {
                 <AppInstaller security={securityProvider}>
                     <PageBuilderProvider isEditor>
                         <ThemeProvider>
-                            {getPlugins("route").map(pl =>
-                                React.cloneElement(pl.route, {
-                                    key: pl.name,
-                                    exact: true
-                                })
-                            )}
+                            <Routes />
                         </ThemeProvider>
                     </PageBuilderProvider>
                 </AppInstaller>
